@@ -1,0 +1,44 @@
+# Cursor Context Rules - File Transfer Tool
+
+## Projekt-Übersicht
+Datei-Transfer-Tool: win1 → Google Drive → win2 → target-host (via Jumpserver)
+
+## Hauptkomponenten
+- `win1_upload_monitor.py` - Überwacht lokalen Ordner, lädt zu Google Drive hoch
+- `win2_download_and_transfer.py` - Überwacht Google Drive, lädt herunter, überträgt per SCP
+- `config.json` - Zentrale Konfiguration
+
+## Technologien
+- Python 3.8+
+- Google Drive API v3 (OAuth 2.0)
+- watchdog (Dateisystem-Überwachung)
+- paramiko + scp (SSH/SCP Transfer)
+- Pageant-Unterstützung (SSH-Agent)
+
+## Wichtige Konfigurationen
+- Google Drive Folder ID: Aus URL nach `/folders/` kopieren
+- SSH: Pageant (use_ssh_agent: true) oder Key-Datei
+- Ordner: win1=`C:\SYN\Upload`, win2=`C:\SYN\Download`
+
+## Sensible Dateien (nicht committen)
+- credentials.json
+- token.json
+- client_secret_*.json
+- *.log
+
+## Dependencies
+- google-api-python-client, google-auth-httplib2, google-auth-oauthlib
+- watchdog
+- paramiko, scp
+
+## Workflow
+1. win1: Datei in Upload-Ordner → Auto-Upload zu Google Drive
+2. win2: Prüft Google Drive → Download → SCP zu target-host
+
+## Setup-Schritte
+1. Dependencies: `uv pip install --user -r requirements.txt`
+2. Google Cloud Console: credentials.json herunterladen
+3. Google Drive: Folder ID aus URL kopieren
+4. config.json: Folder ID + SSH-Details eintragen
+5. Erste Authentifizierung: Skripte starten → Browser-Login
+

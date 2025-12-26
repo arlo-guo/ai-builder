@@ -1,0 +1,53 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Google Drive Credentials (NIEMALS committen!)
+credentials.json
+token.json
+*.pickle
+client_secret_*.json
+
+# Logs
+*.log
+win1_upload.log
+win2_transfer.log
+
+# Processed files tracking
+processed_files.txt
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Config (kann angepasst werden, enthält sensible Daten)
+# config.json
+

@@ -1,0 +1,44 @@
+{
+  "win1": {
+    "watch_folder": "C:\\SYN\\Upload",
+    "google_drive_folder_id": "YOUR_GOOGLE_DRIVE_FOLDER_ID",
+    "delete_after_upload": false,
+    "move_after_upload": true,
+    "move_to_folder": "C:\\SYN\\Upload\\transfered"
+  },
+  "win2": {
+    "download_folder": "C:\\SYN\\Download",
+    "google_drive_folder_id": "YOUR_GOOGLE_DRIVE_FOLDER_ID",
+    "check_interval_seconds": 30,
+    "delete_after_transfer": true
+  },
+  "target_host": {
+    "jumpserver": {
+      "host": "jumpserver.example.com",
+      "port": 22,
+      "username": "jumpuser",
+      "use_ssh_agent": true,
+      "key_file": "C:\\Users\\YourUser\\.ssh\\id_rsa",
+      "password": null
+    },
+    "target": {
+      "host": "target-host.example.com",
+      "port": 22,
+      "username": "targetuser",
+      "use_ssh_agent": true,
+      "key_file": "C:\\Users\\YourUser\\.ssh\\id_rsa",
+      "password": null,
+      "target_folder": "/home/targetuser/transfer"
+    }
+  },
+  "google_drive": {
+    "credentials_file": "credentials.json",
+    "token_file": "token.json",
+    "scopes": ["https://www.googleapis.com/auth/drive.file"]
+  },
+  "logging": {
+    "level": "INFO",
+    "file": "transfer.log"
+  }
+}
+
